@@ -11,7 +11,7 @@ public partial class AllComics : System.Web.UI.Page
     static Random oRandomComic = new Random();
     static int iRandomComic = 0;
 
-    const  int iFirstComic = 1;
+    const int iFirstComic = 1;
     static int iLatestComic = 2286;
     static int iCurrentComic = iLatestComic;
     static int iBumps;
@@ -19,6 +19,8 @@ public partial class AllComics : System.Web.UI.Page
 
     static ComicsDBDataContext db = new ComicsDBDataContext();
     static ComicData comicData = new ComicData();
+
+
 
 
     //Grab the latest comic first
@@ -43,10 +45,9 @@ public partial class AllComics : System.Web.UI.Page
             Label1.Text = Convert.ToString(comicData.Bumps);
         }
 
-
         if (IsPostBack == true)
         {
-            Label1.Text = Convert.ToString(iLabelUpdatedBumps);
+            Label1.Text = Convert.ToString(comicData.Bumps);
         }
 
 
@@ -63,15 +64,15 @@ public partial class AllComics : System.Web.UI.Page
         iCurrentComic = iFirstComic;
 
         var doesComicActuallyExist = db.ComicDatas.Any(o => o.TotalNumber.Equals(iCurrentComic));
-        
+
         while (doesComicActuallyExist == false)
         {
             iCurrentComic++;
             doesComicActuallyExist = db.ComicDatas.Any(o => o.TotalNumber == iCurrentComic);
         }
 
-        ComicData comicImage = db.ComicDatas.Single(o => o.TotalNumber == iCurrentComic);
-        ImageButton1.ImageUrl = comicImage.FilePath;
+        comicData = db.ComicDatas.Single(o => o.TotalNumber == iCurrentComic);
+        ImageButton1.ImageUrl = comicData.FilePath;
     }
 
 
@@ -101,9 +102,9 @@ public partial class AllComics : System.Web.UI.Page
             doescomicActuallyExist = db.ComicDatas.Any(o => o.TotalNumber == iCurrentComic);
         }
 
-        ComicData comicImage = db.ComicDatas.Single(o => o.TotalNumber == iCurrentComic);
-        ImageButton1.ImageUrl = comicImage.FilePath;
-        iLabelUpdatedBumps = comicImage.Bumps;
+        comicData = db.ComicDatas.Single(o => o.TotalNumber == iCurrentComic);
+        ImageButton1.ImageUrl = comicData.FilePath;
+        iLabelUpdatedBumps = comicData.Bumps;
 
     }
 
@@ -125,8 +126,8 @@ public partial class AllComics : System.Web.UI.Page
             doesComicExist = db.ComicDatas.Any(o => o.TotalNumber == iCurrentComic);
         }
 
-        ComicData comicImage = db.ComicDatas.Single(o => o.TotalNumber == (iCurrentComic));
-        ImageButton1.ImageUrl = comicImage.FilePath;
+        comicData = db.ComicDatas.Single(o => o.TotalNumber == (iCurrentComic));
+        ImageButton1.ImageUrl = comicData.FilePath;
 
 
     }
@@ -154,8 +155,8 @@ public partial class AllComics : System.Web.UI.Page
             doescomicActuallyExist = db.ComicDatas.Any(o => o.TotalNumber == iCurrentComic);
         }
 
-        ComicData comicImage = db.ComicDatas.Single(o => o.TotalNumber == iCurrentComic);
-        ImageButton1.ImageUrl = comicImage.FilePath;
+        comicData = db.ComicDatas.Single(o => o.TotalNumber == iCurrentComic);
+        ImageButton1.ImageUrl = comicData.FilePath;
 
     }
 
@@ -167,8 +168,8 @@ public partial class AllComics : System.Web.UI.Page
     protected void LinkButtonNewest_Click(object sender, EventArgs e)
     {
         iCurrentComic = iLatestComic;
-        ComicData comicImage = db.ComicDatas.Single(c => c.TotalNumber == iCurrentComic);
-        ImageButton1.ImageUrl = comicImage.FilePath;
+        comicData = db.ComicDatas.Single(c => c.TotalNumber == iCurrentComic);
+        ImageButton1.ImageUrl = comicData.FilePath;
         iCurrentComic = iLatestComic;
     }
 
@@ -204,15 +205,28 @@ public partial class AllComics : System.Web.UI.Page
             doescomicActuallyExist = db.ComicDatas.Any(o => o.TotalNumber == iCurrentComic);
         }
 
-        ComicData comicImage = db.ComicDatas.Single(o => o.TotalNumber == iCurrentComic);
-        ImageButton1.ImageUrl = comicImage.FilePath;
+        comicData = db.ComicDatas.Single(o => o.TotalNumber == iCurrentComic);
+        ImageButton1.ImageUrl = comicData.FilePath;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
     protected void LinkButtonLike_Click(object sender, EventArgs e)
     {
 
 
 
-        ComicData comicData = db.ComicDatas.Single(o => o.TotalNumber == iCurrentComic);
+        comicData = db.ComicDatas.Single(o => o.TotalNumber == iCurrentComic);
         comicData.Bumps++;
         iLabelUpdatedBumps = comicData.Bumps;
         db.SubmitChanges();
@@ -258,7 +272,7 @@ public partial class AllComics : System.Web.UI.Page
 
 
 
-        ComicData comicData = db.ComicDatas.Single(o => o.TotalNumber == iCurrentComic
+        comicData = db.ComicDatas.Single(o => o.TotalNumber == iCurrentComic
                                                    && o.Bumps == iBumps);
 
         ImageButton1.ImageUrl = comicData.FilePath;
@@ -290,11 +304,13 @@ public partial class AllComics : System.Web.UI.Page
         }
 
 
-        ComicData comicData = db.ComicDatas.Single(o => o.TotalNumber == iCurrentComic
+        comicData = db.ComicDatas.Single(o => o.TotalNumber == iCurrentComic
                                                    && o.Bumps == iBumps);
 
         ImageButton1.ImageUrl = comicData.FilePath;
+        iLabelUpdatedBumps = comicData.Bumps;
 
-        
     }
+
+  
 }
