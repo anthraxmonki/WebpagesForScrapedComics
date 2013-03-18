@@ -8,6 +8,7 @@
       <Column Name="Bumps" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="FilePath" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="TotalNumber" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

@@ -91,6 +91,8 @@ public partial class ComicData : INotifyPropertyChanging, INotifyPropertyChanged
 	
 	private System.DateTime _DateAdded;
 	
+	private int _TotalNumber;
+	
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -107,6 +109,8 @@ public partial class ComicData : INotifyPropertyChanging, INotifyPropertyChanged
     partial void OnFilePathChanged();
     partial void OnDateAddedChanging(System.DateTime value);
     partial void OnDateAddedChanged();
+    partial void OnTotalNumberChanging(int value);
+    partial void OnTotalNumberChanged();
     #endregion
 	
 	public ComicData()
@@ -230,6 +234,26 @@ public partial class ComicData : INotifyPropertyChanging, INotifyPropertyChanged
 				this._DateAdded = value;
 				this.SendPropertyChanged("DateAdded");
 				this.OnDateAddedChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalNumber", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
+	public int TotalNumber
+	{
+		get
+		{
+			return this._TotalNumber;
+		}
+		set
+		{
+			if ((this._TotalNumber != value))
+			{
+				this.OnTotalNumberChanging(value);
+				this.SendPropertyChanging();
+				this._TotalNumber = value;
+				this.SendPropertyChanged("TotalNumber");
+				this.OnTotalNumberChanged();
 			}
 		}
 	}
