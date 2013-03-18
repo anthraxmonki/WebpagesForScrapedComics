@@ -36,7 +36,11 @@
     <br />
     <br />
 
-    <asp:ImageButton ID="ImageButton2" runat="server" />
 
-</asp:Content>
+
+    <asp:LinkButton ID="LinkButtonLike" runat="server">I Like It!</asp:LinkButton>
+
+
+
+    </asp:Content>
 
