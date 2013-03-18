@@ -34,8 +34,6 @@
         &nbsp
         <asp:LinkButton ID="LinkButtonAntic"        runat="server"  PostBackUrl="~/AnticsPage.aspx"  >AnticsPage</asp:LinkButton>
         &nbsp
-        <asp:LinkButton ID="LinkButtonAllComics"    runat="server"  PostBackUrl="~/AllComics.aspx"   >All Comics</asp:LinkButton>
-        &nbsp
         <asp:LinkButton ID="LinkButtonDataBasePage" runat="server"  PostBackUrl="~/DatabasePage.aspx">DataBasePage</asp:LinkButton>
 
     </form>
