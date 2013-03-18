@@ -10,12 +10,11 @@
     <h1>
         DatabasePage
     </h1>
-    <asp:ImageButton ID="ImageButton1" runat="server" 
-    onclick="ImageButton1_Click"  />
+    <asp:Label ID="Label1" runat="server" Text="SubmitScrapedComics"></asp:Label> &nbsp
 
 
     <asp:Button ID="ExplosmLinqButton" runat="server" Text="ExplosmLinqButton" 
-    onclick="LinqButton_Click" />
+    onclick="ExplosmButton_Click" />
 
 
     <asp:Button ID="AnticsLinqButton" runat="server" Text="AnticsLinqButton" 
@@ -23,21 +22,11 @@
 
             <br />
 
-    <asp:LinkButton ID="LinkButtonFirst"    runat="server" 
-    onclick="LinkButtonFirst_Click">First</asp:LinkButton>
     &nbsp
-    <asp:LinkButton ID="LinkButtonPrevious" runat="server" 
-    onclick="LinkButtonPrevious_Click">Previous</asp:LinkButton>
     &nbsp
-    <asp:LinkButton ID="LinkButtonRandom"   runat="server" 
-    onclick="LinkButtonRandom_Click">Random</asp:LinkButton>
     &nbsp
-    <asp:LinkButton ID="LinkButtonNext"     runat="server" 
-    onclick="LinkButtonNext_Click">Next</asp:LinkButton>
     &nbsp
-    <asp:LinkButton ID="LinkButtonNewest"   runat="server" 
-    onclick="LinkButtonNewest_Click">Newest</asp:LinkButton>
-
+    
     <br />
     <br />
 

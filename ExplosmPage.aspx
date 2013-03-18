@@ -30,5 +30,10 @@
     <asp:LinkButton ID="LinkButtonLast"     runat="server" 
         onclick="LinkButtonLast_Click">Latest Comic</asp:LinkButton>
 
+   <br />
+   <br />
+   <asp:LinkButton ID="LinkButtonLike" runat="server">I Like It!</asp:LinkButton>
+
+
 </asp:Content>
 
