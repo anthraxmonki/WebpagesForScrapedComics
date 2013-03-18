@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ComicsRUs" Class="ComicsDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=BEASTMODE-PC;Initial Catalog=ComicsRUs;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="ComicsRUsConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.ComicData" Member="ComicDatas">
+    <Type Name="ComicData">
+      <Column Name="FileName" Type="System.String" DbType="NVarChar(55) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FileExtension" Type="System.String" DbType="NVarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="Website" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="Bumps" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FilePath" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>
